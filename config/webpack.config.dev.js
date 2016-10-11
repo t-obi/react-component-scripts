@@ -4,17 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var paths = require('./paths');
 
-const ROOT_PATH = path.resolve(__dirname);
-const TESTS_PATH = path.resolve(ROOT_PATH, 'tests');
-
 const PUBLIC_PATH = '/';
-
 
 const CONFIG_DEV = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
     alias: {
-      sinon: path.resolve(ROOT_PATH, 'node_modules/sinon/pkg/sinon.js'),
+      sinon: path.resolve(paths.ownNodeModules, 'sinon/pkg/sinon.js'),
     },
   },
   entry: [
@@ -30,7 +26,7 @@ const CONFIG_DEV = {
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        include: [paths.examplesSrc, paths.componentSrc, TESTS_PATH],
+        include: [paths.examplesSrc, paths.componentSrc, paths.tests],
         query: {
           presets: ['stage-0', 'es2015', 'react'],
           plugins: [

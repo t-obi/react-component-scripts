@@ -20,6 +20,14 @@ case 'build-examples':
   );
   process.exit(result.status);
   break;
+case 'test':
+  var result = spawn.sync(
+    'node',
+    [require.resolve('../scripts/run-tests')],
+    {stdio: 'inherit'}
+  );
+  process.exit(result.status);
+  break;
 default:
   console.log('Unknown script "' + script + '".');
   break;

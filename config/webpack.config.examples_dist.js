@@ -3,15 +3,11 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 
-const ROOT_PATH = path.resolve(__dirname);
 const PUBLIC_PATH = '/react-video-cover';
 
 const CONFIG_EXAMPLE_DIST = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
-    alias: {
-      sinon: path.resolve(ROOT_PATH, 'node_modules/sinon/pkg/sinon.js'),
-    },
   },
   entry: [
     paths.examplesIndexJs,
