@@ -5,25 +5,21 @@ webpackConfig.externals['react/lib/ExecutionEnvironment'] = true;
 webpackConfig.externals['react/lib/ReactContext'] = true;
 webpackConfig.externals['react/addons'] = true;
 
-const foo = {
+const config = {
   browsers: ['PhantomJS'],
   frameworks: ['mocha'],
   reporters: ['mocha'],
   files: [
     `${paths.tests}/**/*.spec.js`,
   ],
-  preprocessors: {
-    //`${paths.tests}/**/*.spec.js`: ['webpack'],
-  },
-
+  preprocessors: {},
   webpack: webpackConfig,
   webpackServer: {
     noInfo: true,
   },
 }
-foo.preprocessors[`${paths.tests}/**/*.spec.js`] = ['webpack'];
+config.preprocessors[`${paths.tests}/**/*.spec.js`] = ['webpack'];
 
-module.exports = function configure(config) {
-  console.log('>>>>> config: ', foo);
-  config.set(foo);
+module.exports = function configure(baseConfig) {
+  baseConfig.set(config);
 };

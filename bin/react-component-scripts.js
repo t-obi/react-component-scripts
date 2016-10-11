@@ -23,7 +23,7 @@ case 'build-examples':
 case 'test':
   var result = spawn.sync(
     'node',
-    [require.resolve('../scripts/run-tests')],
+    [require.resolve('../scripts/run-tests')].concat(args),
     {stdio: 'inherit'}
   );
   process.exit(result.status);
