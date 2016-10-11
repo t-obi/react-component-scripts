@@ -1,3 +1,8 @@
+/** 
+ * this is adapted from react-scripts / create-react-app,
+ * see https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts
+ */
+
 var path = require('path');
 var fs = require('fs');
 
@@ -24,20 +29,6 @@ var nodePaths = (process.env.NODE_PATH || '')
   .filter(Boolean)
   .map(resolveApp);
 
-// // config after eject: we're in ./config/
-// module.exports = {
-//   appBuild: resolveApp('build'),
-//   appPublic: resolveApp('public'),
-//   appHtml: resolveApp('public/index.html'),
-//   appIndexJs: resolveApp('src/index.js'),
-//   appPackageJson: resolveApp('package.json'),
-//   appSrc: resolveApp('src'),
-//   testsSetup: resolveApp('src/setupTests.js'),
-//   appNodeModules: resolveApp('node_modules'),
-//   ownNodeModules: resolveApp('node_modules'),
-//   nodePaths: nodePaths
-// };
-
 function resolveOwn(relativePath) {
   return path.resolve(__dirname, relativePath);
 }
@@ -57,12 +48,6 @@ module.exports = {
   // this is empty with npm3 but node resolution searches higher anyway:
   ownNodeModules: resolveOwn('../node_modules'),
   nodePaths: nodePaths,
-
-  //appBuild: resolveApp('build'),
-  //appPublic: resolveApp('public'),
-  //appIndexJs: resolveApp('src/index.js'),
-  //appSrc: resolveApp('src'),
-  //testsSetup: resolveApp('src/setupTests.js'),
   
 };
 
@@ -80,15 +65,5 @@ if (__dirname.indexOf(path.join('packages', 'react-component-scripts', 'config')
 
     appNodeModules: resolveOwn('../node_modules'),
     ownNodeModules: resolveOwn('../node_modules'),
-
-
-    //appBuild: resolveOwn('../../../build'),
-    //appPublic: resolveOwn('../template/public'),
-    //appHtml: resolveOwn('../template/public/index.html'),
-    //appIndexJs: resolveOwn('../template/src/index.js'),
-    //appPackageJson: resolveOwn('../package.json'),
-    //appSrc: resolveOwn('../template/src'),
-    //testsSetup: resolveOwn('../template/src/setupTests.js'),
-    //nodePaths: nodePaths
   };
 }
