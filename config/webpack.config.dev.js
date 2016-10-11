@@ -10,7 +10,7 @@ const CONFIG_DEV = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
     alias: {
-      sinon: path.resolve(paths.ownNodeModules, 'sinon/pkg/sinon.js'),
+      sinon: path.resolve('node_modules/sinon/pkg/sinon.js'),
     },
   },
   entry: [
