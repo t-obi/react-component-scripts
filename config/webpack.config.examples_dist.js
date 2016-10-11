@@ -1,11 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var paths = require('./paths');
+const paths = require('./paths');
 
 const ROOT_PATH = path.resolve(__dirname);
-const EXAMPLES_PATH = path.resolve(ROOT_PATH, 'examples');
-
 const PUBLIC_PATH = '/react-video-cover';
 
 const CONFIG_EXAMPLE_DIST = {
@@ -45,7 +43,7 @@ const CONFIG_EXAMPLE_DIST = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist_examples'),
+    path: paths.examplesDist,
     publicPath: PUBLIC_PATH,
     filename: 'bundle.js',
   },
