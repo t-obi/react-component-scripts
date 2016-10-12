@@ -3,7 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 
-const PUBLIC_PATH = '/react-video-cover';
+const libraryName = require(paths.appPackageJson).name;
+const PUBLIC_PATH = `/${libraryName}`;
 
 const CONFIG_EXAMPLE_DIST = {
   resolve: {
