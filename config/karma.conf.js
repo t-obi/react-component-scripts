@@ -11,14 +11,21 @@ const config = {
   reporters: ['mocha'],
   files: [
     `${paths.tests}/**/*.spec.js`,
+    {pattern: `${paths.examplesSrc}/**/*.js`, included: false, served: false},
+    {pattern: `${paths.componentSrc}/**/*.js`, included: false, served: false},
   ],
   preprocessors: {},
   webpack: webpackConfig,
   webpackServer: {
     noInfo: true,
   },
+  eslint: {
+    stopOnWarning: true,
+  },
 }
-config.preprocessors[`${paths.tests}/**/*.spec.js`] = ['webpack'];
+config.preprocessors[`${paths.tests}/**/*.spec.js`] = ['eslint', 'webpack'];
+config.preprocessors[`${paths.examplesSrc}/**/*.js`] = ['eslint'];
+config.preprocessors[`${paths.componentSrc}/**/*.js`] = ['eslint'];
 
 module.exports = function configure(baseConfig) {
   baseConfig.set(config);
