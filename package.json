@@ -1,6 +1,6 @@
 {
   "name": "@tkloht/react-component-scripts",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "shared webpack config for my react components, inspired by create-react-app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
