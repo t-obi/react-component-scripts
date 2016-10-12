@@ -7,7 +7,7 @@ switch (script) {
 case 'start':
   var result = spawn.sync(
     'node',
-    [require.resolve('../scripts/build-examples')].concat('--watch'),
+    [require.resolve('../scripts/build')].concat('--watch'),
     {stdio: 'inherit'}
   );
   process.exit(result.status);
