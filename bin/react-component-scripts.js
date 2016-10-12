@@ -12,10 +12,10 @@ case 'start':
   );
   process.exit(result.status);
   break;
-case 'build-examples':
+case 'build':
   var result = spawn.sync(
     'node',
-    [require.resolve('../scripts/build-examples')],
+    [require.resolve('../scripts/build')],
     {stdio: 'inherit'}
   );
   process.exit(result.status);

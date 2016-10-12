@@ -10,6 +10,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const webpackConfigExamplesDev = require('../config/webpack.config.dev');
 const webpackConfigExamplesDist = require('../config/webpack.config.examples_dist');
+const webpackConfigLibDist = require('../config/webpack.config.lib_dist');
 
 function webpackServer(compiler) {
   new WebpackDevServer(compiler, {
@@ -26,19 +27,25 @@ function webpackServer(compiler) {
   });
 }
 
-const compiler = commander.watch
-  ? webpack(webpackConfigExamplesDev)
-  : webpack(webpackConfigExamplesDist);
-
 if (commander.watch) {
+  const compiler = webpack(webpackConfigExamplesDev);
   webpackServer(compiler);
 } else {
   console.log('run the build...');
-  compiler.run((err) => {
+  const examplesCompiler = webpack(webpackConfigExamplesDist);
+  const libCompiler = webpack(webpackConfigLibDist);
+  examplesCompiler.run((err) => {
     if (err) {
-      console.error('error: ', err);
+      console.error('error building examples: ', err);
     } else {
-      console.log('done!!');
+      console.log('done building examples.');
+    }
+  });
+  libCompiler.run((err) => {
+    if (err) {
+      console.error('error building lib: ', err);
+    } else {
+      console.log('done building lib.');
     }
   });
 }
