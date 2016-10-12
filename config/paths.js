@@ -35,10 +35,11 @@ function resolveOwn(relativePath) {
 
 // config before eject: we're in ./node_modules/react-scripts/config/
 module.exports = {
-  componentDist: resolveApp('dist'),
-  examplesDist: resolveApp('dist_examples'),
+  componentDist: resolveApp('dist/lib'),
+  examplesDist: resolveApp('dist/examples'),
   examplesSrc: resolveApp('examples'),
   componentSrc: resolveApp('lib'),
+  componentIndexJs: resolveApp('lib/index.js'),
   tests: resolveApp('tests'),
   examplesHtml: resolveApp('examples/index.html'),
   examplesIndexJs: resolveApp('examples/main.js'),
@@ -54,10 +55,11 @@ module.exports = {
 // config before publish: we're in ./packages/react-scripts/config/
 if (__dirname.indexOf(path.join('packages', 'react-component-scripts', 'config')) !== -1) {
   module.exports = {
-    componentDist: resolveApp('../../../dist'),
-    examplesDist: resolveApp('../../../dist_examples'),
+    componentDist: resolveApp('../../../dist/lib'),
+    examplesDist: resolveApp('../../../dist/examples'),
     examplesSrc: resolveApp('../../../examples'),
     componentSrc: resolveApp('../../../lib'),
+    componentIndexJs: resolveApp('../../../lib/index.js'),
     tests: resolveApp('../../../tests'),
     examplesHtml: resolveApp('../../../examples/index.html'),
     examplesIndexJs: resolveApp('../../../examples/main.js'),
