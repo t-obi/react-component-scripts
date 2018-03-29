@@ -7,7 +7,7 @@ const libraryName = require(paths.appPackageJson).name;
 
 const CONFIG_LIB_DIST = {
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['.js'],
   },
   entry: [
     paths.componentIndexJs,
@@ -17,18 +17,18 @@ const CONFIG_LIB_DIST = {
     'react-dom': 'react-dom'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        query: {
+        options: {
           presets: ['stage-0', 'es2015', 'react'],
           plugins: [
             'transform-class-properties',
           ],
         },
-      },
-    ],
+      }
+    ]
   },
   output: {
     path: paths.componentDist,
@@ -44,7 +44,7 @@ const CONFIG_LIB_DIST = {
         basePath: JSON.stringify(PUBLIC_PATH),
       },
     }),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 
 };

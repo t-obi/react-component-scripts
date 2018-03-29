@@ -8,7 +8,7 @@ const PUBLIC_PATH = `/${libraryName}`;
 
 const CONFIG_EXAMPLE_DIST = {
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json'],
   },
   entry: [
     paths.examplesIndexJs,
@@ -17,12 +17,12 @@ const CONFIG_EXAMPLE_DIST = {
     noParse: [
       /\/sinon\.js/,
     ],
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         loader: 'babel',
         include: [paths.examplesSrc, paths.componentSrc],
-        query: {
+        options: {
           presets: ['stage-0', 'es2015', 'react'],
           plugins: [
             'transform-class-properties',
@@ -30,14 +30,21 @@ const CONFIG_EXAMPLE_DIST = {
         },
       },
       {
-        test: /\.json$/,
-        loader: 'json',
-      },
-      {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]',
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+            }
+          }
+        ]
       },
-    ],
+    ]
   },
   output: {
     path: paths.examplesDist,
@@ -51,7 +58,7 @@ const CONFIG_EXAMPLE_DIST = {
         basePath: JSON.stringify(PUBLIC_PATH),
       },
     }),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       template: paths.examplesHtml,
       filename: 'index.html',

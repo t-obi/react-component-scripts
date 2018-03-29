@@ -9,8 +9,8 @@ commander
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const webpackConfigExamplesDev = require('../config/webpack.config.dev');
-//const webpackConfigExamplesDist = require('../config/webpack.config.examples_dist');
-//const webpackConfigLibDist = require('../config/webpack.config.lib_dist');
+const webpackConfigExamplesDist = require('../config/webpack.config.examples_dist');
+const webpackConfigLibDist = require('../config/webpack.config.lib_dist');
 
 function webpackServer(compiler) {
   new WebpackDevServer(compiler, {
