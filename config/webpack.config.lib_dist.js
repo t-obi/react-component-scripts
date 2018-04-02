@@ -20,7 +20,7 @@ const CONFIG_LIB_DIST = {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         options: {
           presets: ['stage-0', 'es2015', 'react'],
           plugins: [

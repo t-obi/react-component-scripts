@@ -20,7 +20,7 @@ const CONFIG_EXAMPLE_DIST = {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         include: [paths.examplesSrc, paths.componentSrc],
         options: {
           presets: ['stage-0', 'es2015', 'react'],

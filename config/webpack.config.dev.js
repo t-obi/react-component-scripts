@@ -9,9 +9,6 @@ const PUBLIC_PATH = '/';
 const CONFIG_DEV = {
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    alias: {
-      sinon: path.resolve('node_modules/sinon/pkg/sinon.js'),
-    },
   },
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
@@ -19,9 +16,6 @@ const CONFIG_DEV = {
     paths.examplesIndexJs,
   ],
   module: {
-    noParse: [
-      /\/sinon\.js/,
-    ],
     rules: [
       {
         test: /\.jsx?$/,
