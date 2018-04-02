@@ -1,6 +1,6 @@
 {
   "name": "@tkloht/react-component-scripts",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "shared webpack config for my react components, inspired by create-react-app",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,12 +28,9 @@
     "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-0": "6.24.1",
     "babel-preset-stage-1": "6.24.1",
-    "chai": "^3.5.0",
-    "chai-enzyme": "^0.5.2",
     "commander": "^2.9.0",
     "cross-spawn": "^4.0.2",
     "css-loader": "0.23.1",
-    "dirty-chai": "1.2.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "4.19.1",
